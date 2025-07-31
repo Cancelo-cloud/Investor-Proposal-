@@ -136,6 +136,56 @@
             background: rgba(255,255,255,0.3);
         }
         
+        .tooltip {
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .tooltip::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 120%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 12px 16px;
+            border-radius: 10px;
+            white-space: nowrap;
+            max-width: 300px;
+            white-space: normal;
+            font-size: 0.85em;
+            line-height: 1.4;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .tooltip::before {
+            content: '';
+            position: absolute;
+            bottom: 112%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 6px solid transparent;
+            border-top-color: rgba(0, 0, 0, 0.9);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1001;
+        }
+        
+        .tooltip:hover::after,
+        .tooltip:hover::before {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(-5px);
+        }
+        
         .bottom-section {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
@@ -247,34 +297,34 @@
                 <div class="investment-column companies">
                     <h3>🏢 Companies</h3>
                     <ul class="asset-list">
-                        <li>• Coinbase</li>
-                        <li>• Realty Income</li>
-                        <li>• JetBlue</li>
-                        <li>• Tesla</li>
-                        <li>• Uber</li>
-                        <li>• Google</li>
-                        <li>• YUM Brands</li>
+                        <li class="tooltip" data-tooltip="Motor company owning SpaceX, Twitter, Neuralink - Pure human movement innovation">• Tesla</li>
+                        <li class="tooltip" data-tooltip="Leading crypto exchange - Gateway to digital currency revolution">• Coinbase</li>
+                        <li class="tooltip" data-tooltip="Real Estate Investment Trust - Monthly dividends from human spaces">• Realty Income</li>
+                        <li class="tooltip" data-tooltip="Low-cost airline - Making travel accessible to everyone">• JetBlue</li>
+                        <li class="tooltip" data-tooltip="Ride-sharing giant - Revolutionizing urban mobility worldwide">• Uber</li>
+                        <li class="tooltip" data-tooltip="Search, AI, Cloud - The infrastructure of human connection">• Google</li>
+                        <li class="tooltip" data-tooltip="KFC, Pizza Hut, Taco Bell - Feeding human gatherings globally">• YUM Brands</li>
                     </ul>
                 </div>
                 
                 <div class="investment-column etfs">
                     <h3>📊 ETFs</h3>
                     <ul class="asset-list">
-                        <li>• ARKK</li>
-                        <li>• SOXX</li>
-                        <li>• LIT</li>
-                        <li>• IDNV</li>
-                        <li>• IYN</li>
-                        <li>• SPDR</li>
+                        <li class="tooltip" data-tooltip="ARK Innovation ETF - Disruptive tech changing how humans live">• ARKK</li>
+                        <li class="tooltip" data-tooltip="Semiconductor ETF - Chips powering our connected world">• SOXX</li>
+                        <li class="tooltip" data-tooltip="Lithium & Battery Tech - Fueling electric vehicle revolution">• LIT</li>
+                        <li class="tooltip" data-tooltip="India ETF - World's largest population entering digital age">• IDNV</li>
+                        <li class="tooltip" data-tooltip="Industrial ETF - Building the infrastructure of tomorrow">• IYN</li>
+                        <li class="tooltip" data-tooltip="SPDR Trust - Broad market exposure with stability">• SPDR</li>
                     </ul>
                 </div>
                 
                 <div class="investment-column crypto">
                     <h3>₿ Crypto</h3>
                     <ul class="asset-list">
-                        <li>• ETH</li>
-                        <li>• ECID</li>
-                        <li>• (Additional assets TBD)</li>
+                        <li class="tooltip" data-tooltip="Ethereum - Smart contracts enabling decentralized human interaction">• ETH</li>
+                        <li class="tooltip" data-tooltip="Strategic crypto allocation for portfolio diversification">• ECID</li>
+                        <li class="tooltip" data-tooltip="Additional digital assets based on market opportunities">(Additional assets TBD)</li>
                     </ul>
                 </div>
             </div>
